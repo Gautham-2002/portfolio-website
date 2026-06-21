@@ -182,8 +182,7 @@ export function KonamiGame() {
       const delta = DIRS[dirRef.current]
       const head = { x: snake[0].x + delta.x, y: snake[0].y + delta.y }
 
-      const hitWall =
-        head.x < 0 || head.y < 0 || head.x >= GRID || head.y >= GRID
+      const hitWall = head.x < 0 || head.y < 0 || head.x >= GRID || head.y >= GRID
       const hitSelf = snake.some((s) => s.x === head.x && s.y === head.y)
       if (hitWall || hitSelf) {
         overRef.current = true
@@ -236,13 +235,7 @@ export function KonamiGame() {
         ctx.shadowColor = 'rgba(240,170,90,0.8)'
         ctx.shadowBlur = 14
         ctx.beginPath()
-        ctx.arc(
-          f.x * cell + cell / 2,
-          f.y * cell + cell / 2,
-          cell * 0.32,
-          0,
-          Math.PI * 2,
-        )
+        ctx.arc(f.x * cell + cell / 2, f.y * cell + cell / 2, cell * 0.32, 0, Math.PI * 2)
         ctx.fill()
         ctx.shadowBlur = 0
 
@@ -251,8 +244,7 @@ export function KonamiGame() {
         snake.forEach((s, i) => {
           const t = i / Math.max(snake.length, 1)
           const light = 235 - t * 70
-          ctx.fillStyle =
-            i === 0 ? 'rgb(190, 248, 255)' : `rgb(90, ${light}, ${light + 10})`
+          ctx.fillStyle = i === 0 ? 'rgb(190, 248, 255)' : `rgb(90, ${light}, ${light + 10})`
           if (i === 0) {
             ctx.shadowColor = 'rgba(120,220,235,0.9)'
             ctx.shadowBlur = 16
@@ -315,25 +307,16 @@ export function KonamiGame() {
 
             <div className="mb-4 flex items-center justify-between font-mono text-sm">
               <span className="text-muted-foreground">
-                Score{' '}
-                <span className="ml-1 text-base font-semibold text-foreground">
-                  {score}
-                </span>
+                Score <span className="ml-1 text-base font-semibold text-foreground">{score}</span>
               </span>
               <span className="inline-flex items-center gap-1.5 text-muted-foreground">
                 <Trophy className="size-3.5 text-accent" />
-                Best{' '}
-                <span className="font-semibold text-foreground">{best}</span>
+                Best <span className="font-semibold text-foreground">{best}</span>
               </span>
             </div>
 
             <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-glass-border bg-background/40">
-              <canvas
-                ref={canvasRef}
-                width={510}
-                height={510}
-                className="h-full w-full"
-              />
+              <canvas ref={canvasRef} width={510} height={510} className="h-full w-full" />
 
               {/* overlays */}
               {(gameOver || !running) && (
@@ -342,9 +325,7 @@ export function KonamiGame() {
                     {gameOver ? 'Game Over' : 'Paused'}
                   </p>
                   {gameOver && (
-                    <p className="font-mono text-sm text-muted-foreground">
-                      You scored {score}
-                    </p>
+                    <p className="font-mono text-sm text-muted-foreground">You scored {score}</p>
                   )}
                   <button
                     onClick={() => {
@@ -404,11 +385,7 @@ export function KonamiGame() {
                 aria-label={running ? 'Pause' : 'Resume'}
                 className="flex size-11 items-center justify-center rounded-full border border-glass-border bg-secondary/50 text-foreground transition-colors hover:border-primary/40"
               >
-                {running ? (
-                  <Pause className="size-5" />
-                ) : (
-                  <Play className="size-5" />
-                )}
+                {running ? <Pause className="size-5" /> : <Play className="size-5" />}
               </button>
             </div>
           </motion.div>

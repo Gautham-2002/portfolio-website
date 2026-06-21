@@ -61,7 +61,7 @@ function SpinningCloud() {
               >
                 <img
                   src={logo.src || '/placeholder.svg'}
-                  alt={logo.name}
+                  alt={`${logo.name} logo`}
                   width={28}
                   height={28}
                   loading="lazy"

@@ -186,13 +186,25 @@ export const projects: Project[] = [
     span: 'tall',
   },
   {
-    title: 'Coral',
+    title: 'QA Test Automation Platform',
     description:
-      'One SQL interface over APIs, files, and live sources — built for agents. Open-source contribution turning fragmented data sources into a single queryable plane.',
-    tags: ['SQL', 'Agents', 'OSS'],
+      'Architected the backend for a test automation tool at Apxor — microservices on GCP/Kubernetes, paired with a Chrome extension that captures user interactions and feeds them to an LLM that auto-generates end-to-end test scripts.',
+    tags: ['Go', 'LLM', 'GKE', 'Chrome Ext'],
     span: 'wide',
-    github: 'https://github.com/Gautham-2002/coral',
-    demo: 'https://withcoral.com',
+  },
+  {
+    title: 'Analytics & Nudge SDK',
+    description:
+      'Maintained the NPM packages powering Apxor’s user-interaction tracking and in-app nudges across web clients — cross-browser, tree-shakable, with ~90% unit test coverage and CI/CD-driven releases.',
+    tags: ['TypeScript', 'NPM', 'SDK', 'Testing'],
+    span: 'normal',
+  },
+  {
+    title: 'Sales-Demo Chrome Extension',
+    description:
+      'Built a Chrome extension that lets the Apxor sales team run full end-to-end product demos on any client site — zero client-side integration required. Directly unlocked new customer acquisition.',
+    tags: ['Chrome Ext', 'TypeScript', 'DX'],
+    span: 'normal',
   },
   {
     title: 'Vigilant',
@@ -209,13 +221,5 @@ export const projects: Project[] = [
     tags: ['Python', 'Fraud', 'ML'],
     span: 'normal',
     github: 'https://github.com/Gautham-2002/pay-guard',
-  },
-  {
-    title: 'Zoom Clone',
-    description:
-      'Real-time video conferencing built in TypeScript — rooms, WebRTC streams, and chat in a clean, modern UI.',
-    tags: ['TypeScript', 'WebRTC', 'Realtime'],
-    span: 'normal',
-    github: 'https://github.com/Gautham-2002/Zoom-clone',
   },
 ]

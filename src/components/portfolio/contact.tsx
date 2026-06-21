@@ -9,9 +9,7 @@ import { Reveal, SectionHeading } from '@/components/portfolio/section'
 const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY as string | undefined
 
 export function Contact() {
-  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>(
-    'idle',
-  )
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
   const formRef = useRef<HTMLFormElement>(null)
   const [prefill, setPrefill] = useState<{
     name: string
@@ -24,8 +22,7 @@ export function Contact() {
       setPrefill({
         name: 'A future teammate',
         email: 'hello@your-company.com',
-        message:
-          "Hi Gautham — saw your portfolio and ran 'sudo hire-me'. Let's talk about a role.",
+        message: "Hi Gautham — saw your portfolio and ran 'sudo hire-me'. Let's talk about a role.",
       })
       setTimeout(() => formRef.current?.querySelector('textarea')?.focus(), 200)
     }
@@ -40,9 +37,7 @@ export function Contact() {
 
     if (!WEB3FORMS_KEY) {
       // Fallback: open mail client if web3forms key isn't configured
-      const subject = encodeURIComponent(
-        `Portfolio inquiry from ${data.get('name')}`,
-      )
+      const subject = encodeURIComponent(`Portfolio inquiry from ${data.get('name')}`)
       const body = encodeURIComponent(
         `${data.get('message')}\n\n— ${data.get('name')} (${data.get('email')})`,
       )
@@ -104,8 +99,8 @@ export function Contact() {
                 >
                   {profile.phone}
                 </a>{' '}
-                or send a message with your requirements below — I'll get back
-                to you after validating.
+                or send a message with your requirements below — I'll get back to you after
+                validating.
               </p>
             </div>
           </div>
@@ -143,9 +138,7 @@ export function Contact() {
                 <span className="flex size-10 items-center justify-center rounded-xl bg-secondary/60 text-primary">
                   <Icon className="size-4" />
                 </span>
-                <span className="flex-1 truncate text-sm text-foreground">
-                  {label}
-                </span>
+                <span className="flex-1 truncate text-sm text-foreground">{label}</span>
                 <ArrowUpRight className="size-4 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
             ))}
@@ -153,9 +146,7 @@ export function Contact() {
               <span className="flex size-10 items-center justify-center rounded-xl bg-secondary/60 text-primary">
                 <MapPin className="size-4" />
               </span>
-              <span className="text-sm text-muted-foreground">
-                {profile.location}
-              </span>
+              <span className="text-sm text-muted-foreground">{profile.location}</span>
             </div>
           </div>
         </Reveal>

@@ -25,7 +25,7 @@ export function ArcadeChip() {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 12, scale: 0.92 }}
           transition={{ type: 'spring', stiffness: 240, damping: 22 }}
-          className="fixed bottom-5 right-5 z-[90] hidden sm:block"
+          className="fixed bottom-20 right-3 z-[90] sm:bottom-5 sm:right-5"
         >
           <div className="glass group relative flex items-center gap-2 rounded-full py-2 pl-3 pr-2 shadow-2xl shadow-black/40 ring-1 ring-primary/20">
             <button

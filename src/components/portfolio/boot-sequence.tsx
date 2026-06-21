@@ -61,9 +61,7 @@ export function BootSequence() {
           <div className="relative w-full max-w-md px-6 font-mono text-[12px] leading-relaxed text-primary sm:text-sm">
             <div className="mb-3 flex items-center gap-2 text-muted-foreground">
               <span className="size-2 animate-pulse rounded-full bg-primary" />
-              <span className="text-[10px] uppercase tracking-[0.3em]">
-                gautham.os · v2026
-              </span>
+              <span className="text-[10px] uppercase tracking-[0.3em]">gautham.os · v2026</span>
             </div>
             {shown.map((l, i) => (
               <motion.p
@@ -71,11 +69,7 @@ export function BootSequence() {
                 initial={{ opacity: 0, x: -8 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.2 }}
-                className={
-                  i === LINES.length - 1
-                    ? 'text-foreground'
-                    : 'text-primary/90'
-                }
+                className={i === LINES.length - 1 ? 'text-foreground' : 'text-primary/90'}
               >
                 {l}
               </motion.p>

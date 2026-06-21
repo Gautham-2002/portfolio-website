@@ -1,4 +1,4 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import {
   Outlet,
   Link,
@@ -6,11 +6,11 @@ import {
   useRouter,
   HeadContent,
   Scripts,
-} from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+} from '@tanstack/react-router'
+import { useEffect, type ReactNode } from 'react'
 
-import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
+import appCss from '../styles.css?url'
+import { reportLovableError } from '../lib/lovable-error-reporting'
 
 function NotFoundComponent() {
   return (
@@ -31,15 +31,15 @@ function NotFoundComponent() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
-  console.error(error);
-  const router = useRouter();
+  console.error(error)
+  const router = useRouter()
   useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
-  }, [error]);
+    reportLovableError(error, { boundary: 'tanstack_root_error_component' })
+  }, [error])
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -53,8 +53,8 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
             onClick={() => {
-              router.invalidate();
-              reset();
+              router.invalidate()
+              reset()
             }}
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
@@ -69,26 +69,47 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { charSet: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { title: 'Gautham Gokulakonda — Software Engineer' },
+      {
+        name: 'description',
+        content: "Gautham's Interactive Showcase is a dynamic personal portfolio website.",
+      },
+      { name: 'author', content: 'Gautham Gokulakonda' },
+      { property: 'og:title', content: 'Gautham Gokulakonda — Software Engineer' },
+      {
+        property: 'og:description',
+        content: "Gautham's Interactive Showcase is a dynamic personal portfolio website.",
+      },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:site_name', content: 'Gautham Gokulakonda' },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:title', content: 'Gautham Gokulakonda — Software Engineer' },
+      {
+        name: 'twitter:description',
+        content: "Gautham's Interactive Showcase is a dynamic personal portfolio website.",
+      },
+      {
+        property: 'og:image',
+        content:
+          'https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/71c2082d-92dd-4dd4-acb3-f0d95aa99fbb/id-preview-3dc0dcfd--469defe3-0a4d-4358-a868-29fd977c50a4.lovable.app-1782029377921.png',
+      },
+      {
+        name: 'twitter:image',
+        content:
+          'https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/71c2082d-92dd-4dd4-acb3-f0d95aa99fbb/id-preview-3dc0dcfd--469defe3-0a4d-4358-a868-29fd977c50a4.lovable.app-1782029377921.png',
+      },
     ],
     links: [
       {
-        rel: "stylesheet",
+        rel: 'stylesheet',
         href: appCss,
       },
     ],
@@ -97,7 +118,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
   errorComponent: ErrorComponent,
-});
+})
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
@@ -110,16 +131,16 @@ function RootShell({ children }: { children: ReactNode }) {
         <Scripts />
       </body>
     </html>
-  );
+  )
 }
 
 function RootComponent() {
-  const { queryClient } = Route.useRouteContext();
+  const { queryClient } = Route.useRouteContext()
 
   return (
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>
-  );
+  )
 }

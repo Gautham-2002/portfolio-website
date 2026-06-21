@@ -78,16 +78,10 @@ export function CssPlayground() {
         {demos.map((demo, i) => (
           <Reveal key={demo.title} delay={i * 0.05}>
             <div className="css-card glass flex h-56 flex-col rounded-2xl p-5">
-              <div className="flex flex-1 items-center justify-center">
-                {demo.render()}
-              </div>
+              <div className="flex flex-1 items-center justify-center">{demo.render()}</div>
               <div className="mt-2 flex items-baseline justify-between">
-                <span className="font-heading text-sm font-semibold">
-                  {demo.title}
-                </span>
-                <span className="font-mono text-[10px] text-primary">
-                  {demo.note}
-                </span>
+                <span className="font-heading text-sm font-semibold">{demo.title}</span>
+                <span className="font-mono text-[10px] text-primary">{demo.note}</span>
               </div>
             </div>
           </Reveal>

@@ -1,0 +1,14 @@
+# Gautham Gokulakonda
+
+> Personal portfolio of Gautham Gokulakonda — Senior Software Engineer specializing in Go concurrency, Python/AI systems (LLMs, RAG, agentic workflows, MCP), and high-performance React frontends.
+
+Gautham is based in Hyderabad, India, with 3+ years of experience building scalable web apps, microservices, and AI-powered systems. The site showcases selected work, technical experience, skills, and a CSS experiments lab.
+
+## Pages
+
+- [Home](/): Hero, about, tech stack, experience, selected projects, CSS lab, and contact.
+
+## Optional
+
+- [GitHub](https://github.com/Gautham-2002): Source code and open-source contributions.
+- [LinkedIn](https://www.linkedin.com/in/gautham-gokulakonda-a92196231): Career timeline and recommendations.

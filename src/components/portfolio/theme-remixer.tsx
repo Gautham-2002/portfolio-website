@@ -32,8 +32,7 @@ export function ThemeRemixer() {
       if (detail?.accent != null) setAccent(detail.accent)
     }
     window.addEventListener('remix-theme', onTheme as EventListener)
-    return () =>
-      window.removeEventListener('remix-theme', onTheme as EventListener)
+    return () => window.removeEventListener('remix-theme', onTheme as EventListener)
   }, [])
 
   return (

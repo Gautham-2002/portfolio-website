@@ -39,12 +39,8 @@ export function ExperienceSection() {
 
                 <div className="glass rounded-2xl p-6">
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
-                    <h3 className="font-heading text-xl font-semibold">
-                      {exp.role}
-                    </h3>
-                    <span className="font-mono text-xs text-primary">
-                      {exp.period}
-                    </span>
+                    <h3 className="font-heading text-xl font-semibold">{exp.role}</h3>
+                    <span className="font-mono text-xs text-primary">{exp.period}</span>
                   </div>
                   <p className="mt-1 text-sm text-muted-foreground">
                     {exp.company} · {exp.location}

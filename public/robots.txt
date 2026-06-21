@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gautham-dev.lovable.app/sitemap.xml

@@ -1,6 +1,6 @@
-@import "tailwindcss" source(none);
+@import 'tailwindcss' source(none);
 @source "../src";
-@import "tw-animate-css";
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -63,9 +63,9 @@
   --color-glass: var(--glass);
   --color-glass-border: var(--glass-border);
 
-  --font-heading: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-heading: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Geist', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, monospace;
 
   --animate-marquee: marquee 36s linear infinite;
   --animate-aurora: aurora 18s ease-in-out infinite;
@@ -188,11 +188,8 @@
 }
 
 @utility grid-overlay {
-  background-image: linear-gradient(
-      to right,
-      oklch(1 0 0 / 4%) 1px,
-      transparent 1px
-    ),
+  background-image:
+    linear-gradient(to right, oklch(1 0 0 / 4%) 1px, transparent 1px),
     linear-gradient(to bottom, oklch(1 0 0 / 4%) 1px, transparent 1px);
   background-size: 56px 56px;
 }
@@ -212,24 +209,44 @@
 }
 
 @keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 @keyframes aurora {
-  0%, 100% { transform: translate3d(-10%, -6%, 0) scale(1.1) rotate(0deg); }
-  50%      { transform: translate3d(8%, 6%, 0) scale(1.25) rotate(12deg); }
+  0%,
+  100% {
+    transform: translate3d(-10%, -6%, 0) scale(1.1) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(8%, 6%, 0) scale(1.25) rotate(12deg);
+  }
 }
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-12px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
 }
 @keyframes grid-pan {
-  from { background-position: 0 0; }
-  to   { background-position: 56px 56px; }
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 56px 56px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
@@ -269,10 +286,14 @@
   border-radius: 50%;
   background: oklch(0.98 0.01 250);
   border: 2px solid oklch(0.16 0.018 256);
-  box-shadow: 0 0 0 1px var(--glass-border), 0 2px 8px rgba(0,0,0,0.4);
+  box-shadow:
+    0 0 0 1px var(--glass-border),
+    0 2px 8px rgba(0, 0, 0, 0.4);
 }
 .hue-slider::-moz-range-thumb {
-  width: 18px; height: 18px; border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
   background: oklch(0.98 0.01 250);
   border: 2px solid oklch(0.16 0.018 256);
 }
@@ -293,11 +314,15 @@
   white-space: nowrap;
   text-decoration: none;
   cursor: grab;
-  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
   user-select: none;
 }
 .globe-chip img {
-  width: 18px; height: 18px;
+  width: 18px;
+  height: 18px;
   filter: grayscale(0.2);
 }
 .globe-chip:hover {

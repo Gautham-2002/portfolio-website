@@ -76,14 +76,14 @@ export function Hero() {
           <span className="text-gradient">Gautham</span>
           <br />
           <span className="text-foreground">Gokulakonda</span>
+          <span className="sr-only"> — Senior Software Engineer</span>
         </motion.h1>
 
         <motion.p
           variants={item}
           className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg"
         >
-          {profile.role} crafting{' '}
-          <span className="text-foreground">scalable backends</span>,{' '}
+          {profile.role} crafting <span className="text-foreground">scalable backends</span>,{' '}
           <span className="text-foreground">AI systems</span>, and{' '}
           <span className="text-foreground">pixel-precise frontends</span>.
         </motion.p>

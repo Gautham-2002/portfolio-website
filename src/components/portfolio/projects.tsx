@@ -1,12 +1,7 @@
 'use client'
 
 import { type MouseEvent } from 'react'
-import {
-  motion,
-  useMotionValue,
-  useSpring,
-  useTransform,
-} from 'motion/react'
+import { motion, useMotionValue, useSpring, useTransform } from 'motion/react'
 import { ArrowUpRight, ExternalLink } from 'lucide-react'
 import { GithubIcon } from '@/components/portfolio/brand-icons'
 import { type Project, projects } from '@/lib/data'
@@ -46,9 +41,7 @@ function TiltCard({ project, delay }: { project: Project; delay: number }) {
       style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
       className={cn(
         'group relative flex flex-col justify-between overflow-hidden rounded-3xl p-7 [perspective:1000px]',
-        project.accent
-          ? 'bg-primary text-primary-foreground'
-          : 'glass',
+        project.accent ? 'bg-primary text-primary-foreground' : 'glass',
         project.span === 'wide' && 'sm:col-span-2',
         project.span === 'tall' && 'sm:row-span-2',
       )}
@@ -78,9 +71,7 @@ function TiltCard({ project, delay }: { project: Project; delay: number }) {
         <p
           className={cn(
             'mt-3 text-pretty text-sm leading-relaxed',
-            project.accent
-              ? 'text-primary-foreground/80'
-              : 'text-muted-foreground',
+            project.accent ? 'text-primary-foreground/80' : 'text-muted-foreground',
           )}
         >
           {project.description}

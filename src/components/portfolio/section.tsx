@@ -39,16 +39,12 @@ export function SectionHeading({
 }) {
   return (
     <div className={cn('mb-12 flex flex-col gap-3', className)}>
-      <span className="font-mono text-xs uppercase tracking-[0.3em] text-primary">
-        {index}
-      </span>
+      <span className="font-mono text-xs uppercase tracking-[0.3em] text-primary">{index}</span>
       <h2 className="text-balance font-heading text-3xl font-bold tracking-tight sm:text-5xl">
         {title}
       </h2>
       {subtitle && (
-        <p className="max-w-2xl text-pretty leading-relaxed text-muted-foreground">
-          {subtitle}
-        </p>
+        <p className="max-w-2xl text-pretty leading-relaxed text-muted-foreground">{subtitle}</p>
       )}
     </div>
   )

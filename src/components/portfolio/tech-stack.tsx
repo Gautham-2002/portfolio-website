@@ -42,9 +42,7 @@ export function TechStack() {
                 whileHover={{ y: -6 }}
                 className="glass h-full rounded-2xl p-6 transition-colors hover:border-primary/40"
               >
-                <h3 className="mb-4 font-heading text-lg font-semibold">
-                  {group.title}
-                </h3>
+                <h3 className="mb-4 font-heading text-lg font-semibold">{group.title}</h3>
                 <ul className="flex flex-wrap gap-2">
                   {group.skills.map((skill) => (
                     <li

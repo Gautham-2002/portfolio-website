@@ -46,39 +46,25 @@ export function About() {
       <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr]">
         <Reveal>
           <p className="text-pretty text-xl leading-relaxed text-muted-foreground sm:text-2xl">
-            {profile.summary
-              .split('. ')
-              .slice(0, 2)
-              .join('. ')}
-            .
+            {profile.summary.split('. ').slice(0, 2).join('. ')}.
           </p>
           <p className="mt-6 text-pretty leading-relaxed text-muted-foreground">
-            From <span className="text-foreground">Go concurrency patterns</span>{' '}
-            and <span className="text-foreground">Kafka pipelines</span> to{' '}
+            From <span className="text-foreground">Go concurrency patterns</span> and{' '}
+            <span className="text-foreground">Kafka pipelines</span> to{' '}
             <span className="text-foreground">RAG + agentic LLM workflows</span> and{' '}
-            <span className="text-foreground">sub-100ms React frontends</span> — I
-            care about the whole stack and the details that make it feel fast.
+            <span className="text-foreground">sub-100ms React frontends</span> — I care about the
+            whole stack and the details that make it feel fast.
           </p>
         </Reveal>
 
         <Reveal delay={0.15}>
           <div className="grid grid-cols-2 gap-4">
             {stats.map((s) => (
-              <motion.div
-                key={s.label}
-                whileHover={{ y: -4 }}
-                className="glass rounded-2xl p-5"
-              >
+              <motion.div key={s.label} whileHover={{ y: -4 }} className="glass rounded-2xl p-5">
                 <div className="font-heading text-3xl font-bold text-primary sm:text-4xl">
-                  <NumberTicker
-                    value={s.value}
-                    prefix={s.prefix}
-                    suffix={s.suffix}
-                  />
+                  <NumberTicker value={s.value} prefix={s.prefix} suffix={s.suffix} />
                 </div>
-                <div className="mt-1 text-xs leading-snug text-muted-foreground">
-                  {s.label}
-                </div>
+                <div className="mt-1 text-xs leading-snug text-muted-foreground">{s.label}</div>
               </motion.div>
             ))}
           </div>

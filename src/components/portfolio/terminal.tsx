@@ -39,13 +39,10 @@ export function Terminal() {
   const inputRef = useRef<HTMLInputElement>(null)
   const scrollRef = useRef<HTMLDivElement>(null)
 
-  const print = useCallback(
-    (text: string | string[], kind: Line['kind'] = 'out') => {
-      const arr = Array.isArray(text) ? text : [text]
-      setLines((l) => [...l, ...arr.map((t) => ({ kind, text: t }))])
-    },
-    [],
-  )
+  const print = useCallback((text: string | string[], kind: Line['kind'] = 'out') => {
+    const arr = Array.isArray(text) ? text : [text]
+    setLines((l) => [...l, ...arr.map((t) => ({ kind, text: t }))])
+  }, [])
 
   const reset = useCallback(() => {
     setLines([
@@ -79,7 +76,11 @@ export function Terminal() {
           break
         case 'ls':
           if (rest[0] === 'projects' || !rest[0]) {
-            print(projects.map((p, i) => `${String(i + 1).padStart(2, '0')}  ${p.title}  — ${p.tags.join(', ')}`))
+            print(
+              projects.map(
+                (p, i) => `${String(i + 1).padStart(2, '0')}  ${p.title}  — ${p.tags.join(', ')}`,
+              ),
+            )
           } else {
             print(`ls: cannot access '${rest.join(' ')}': try 'ls projects'`)
           }
@@ -94,13 +95,7 @@ export function Terminal() {
           )
           break
         case 'skills':
-          print(
-            skillGroups.flatMap((g) => [
-              `[ ${g.title} ]`,
-              `  ${g.skills.join(', ')}`,
-              '',
-            ]),
-          )
+          print(skillGroups.flatMap((g) => [`[ ${g.title} ]`, `  ${g.skills.join(', ')}`, '']))
           break
         case 'cat':
           if (rest[0] === 'resume' || rest[0] === 'resume.pdf') {
@@ -126,7 +121,9 @@ export function Terminal() {
           break
         case 'theme': {
           if (rest[0] === 'reset') {
-            window.dispatchEvent(new CustomEvent('remix-theme', { detail: { hue: 205, accent: 50 } }))
+            window.dispatchEvent(
+              new CustomEvent('remix-theme', { detail: { hue: 205, accent: 50 } }),
+            )
             print('theme: reset → ocean (205) / amber (50)')
           } else if (rest[0] === 'accent') {
             const h = Number(rest[1])
@@ -159,9 +156,7 @@ export function Terminal() {
             setTimeout(() => {
               window.dispatchEvent(new Event('prefill-hire'))
               close()
-              document
-                .getElementById('contact')
-                ?.scrollIntoView({ behavior: 'smooth' })
+              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
             }, 500)
           } else if (rest[0] === 'rm' && rest[1] === '-rf') {
             print(['nice try.', 'permission denied — this site is immutable ✨'])
@@ -196,10 +191,7 @@ export function Terminal() {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === '`' || e.key === '~') {
         const tgt = e.target as HTMLElement | null
-        if (
-          tgt &&
-          (tgt.tagName === 'INPUT' || tgt.tagName === 'TEXTAREA' || tgt.isContentEditable)
-        )
+        if (tgt && (tgt.tagName === 'INPUT' || tgt.tagName === 'TEXTAREA' || tgt.isContentEditable))
           return
         e.preventDefault()
         setOpen((o) => !o)
@@ -310,7 +302,7 @@ export function Terminal() {
                       e.preventDefault()
                       const ni = hIdx - 1
                       setHIdx(ni)
-                      setValue(ni < 0 ? '' : history[ni] ?? '')
+                      setValue(ni < 0 ? '' : (history[ni] ?? ''))
                     } else if (e.key === 'Escape') {
                       close()
                     } else if (e.key === 'l' && (e.ctrlKey || e.metaKey)) {
@@ -338,7 +330,7 @@ export function TerminalTrigger() {
     <button
       onClick={() => window.dispatchEvent(new Event('open-terminal'))}
       aria-label="Open terminal"
-      className="glass fixed right-5 top-5 z-[80] hidden size-10 items-center justify-center rounded-full ring-1 ring-primary/20 transition-transform hover:scale-105 sm:flex"
+      className="glass fixed right-3 top-3 z-[80] flex size-10 items-center justify-center rounded-full ring-1 ring-primary/20 transition-transform hover:scale-105 sm:right-5 sm:top-5"
     >
       <TerminalSquare className="size-4 text-primary" />
       <span className="sr-only">Open terminal</span>
