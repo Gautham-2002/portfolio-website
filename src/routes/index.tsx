@@ -14,6 +14,7 @@ import { ArcadeChip } from '@/components/portfolio/arcade-chip'
 import { BootSequence } from '@/components/portfolio/boot-sequence'
 import { Terminal, TerminalTrigger } from '@/components/portfolio/terminal'
 import { ThemeRemixer } from '@/components/portfolio/theme-remixer'
+import { SITE_URL } from '@/lib/site'
 
 export const Route = createFileRoute('/')({
   head: () => ({
@@ -31,9 +32,9 @@ export const Route = createFileRoute('/')({
           'Senior Software Engineer specializing in Go, Python/AI, and high-performance React frontends.',
       },
       { property: 'og:type', content: 'website' },
-      { property: 'og:url', content: 'https://gautham-dev.lovable.app/' },
+      { property: 'og:url', content: `${SITE_URL}/` },
     ],
-    links: [{ rel: 'canonical', href: 'https://gautham-dev.lovable.app/' }],
+    links: [{ rel: 'canonical', href: `${SITE_URL}/` }],
     scripts: [
       {
         type: 'application/ld+json',
@@ -42,7 +43,7 @@ export const Route = createFileRoute('/')({
           '@type': 'Person',
           name: 'Gautham Gokulakonda',
           jobTitle: 'Senior Software Engineer',
-          url: 'https://gautham-dev.lovable.app/',
+          url: `${SITE_URL}/`,
           email: 'mailto:gokulakondagautham2002@gmail.com',
           telephone: '+91-8688939536',
           address: {
